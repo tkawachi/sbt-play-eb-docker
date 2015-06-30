@@ -4,12 +4,9 @@ val commonSettings = Seq(
 )
 
 lazy val root = project.in(file("."))
-  .settings(commonSettings: _*)
-  .aggregate(ebdocker)
-
-lazy val ebdocker = project
   .settings(commonSettings ++ Seq(
-    name := "sbt-ebdocker",
+    name := "sbt-play-eb-docker",
     addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.4.1"),
+    libraryDependencies += "com.amazonaws" % "aws-java-sdk-elasticbeanstalk" % "1.10.2",
     sbtPlugin := true
   ): _*)
